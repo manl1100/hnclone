@@ -1,0 +1,20 @@
+version: "3.1"
+services:
+  
+  server:
+    build: ./server
+    volumes:
+      - ./server:/code
+    ports:
+      - "8888:8888"
+
+  web:
+    build: ./client
+    volumes:
+      - ./client:/usr/src/app
+    ports: 
+      - "8080:8080"
+
+  redis:
+    image: "redis:alpine"
+
